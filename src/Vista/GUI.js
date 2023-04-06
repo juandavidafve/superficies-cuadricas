@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./Input";
 import Resultados from "./Resultados";
+import determinarCuadrica from "../Modelo/determinarCuadrica";
 
 class GUI extends React.Component {
     constructor(props) {
@@ -30,9 +31,19 @@ class GUI extends React.Component {
         const eq = this.state.ecuacion;
 
         if (Object.keys(eq).length === 7) {
+            const resultado = determinarCuadrica(
+                eq.xden,
+                eq.yden,
+                eq.zden,
+                eq.igualdad,
+                eq.xexp,
+                eq.yexp,
+                eq.zexp
+            );
+
             await this.setState({
                 ...this.state,
-                resultado: "testResultado",
+                resultado,
                 grafica: `((x^(${eq.xexp}))/(${eq.xden}))+((y^(${eq.yexp}))/(${eq.yden}))+((z^(${eq.zexp}))/(${eq.zden}))=${eq.igualdad}`,
             });
             this.resultadoElem.current.actualizar();

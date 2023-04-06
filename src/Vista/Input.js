@@ -11,7 +11,7 @@ class Input extends React.Component {
     }
 
     async handleChange(event) {
-        let notNumber = /[^\d]/g;
+        let notNumber = /[^\d-]/g;
 
         if (notNumber.test(event.target.value)) {
             event.target.value = 0;
