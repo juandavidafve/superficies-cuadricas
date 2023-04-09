@@ -104,6 +104,8 @@ class GUI extends React.Component {
                                 className="w-50 text-center"
                                 placeholder="1"
                                 agregarValor={this.agregarValor}
+                                min="0"
+                                max="1"
                                 name="igualdad"
                             />
                         </div>

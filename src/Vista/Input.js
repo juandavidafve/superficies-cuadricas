@@ -17,9 +17,21 @@ class Input extends React.Component {
             event.target.value = 0;
         }
 
+        console.log("Cambio");
+
+        const valor = parseInt(event.target.value);
+
+        if (this.props.min && valor < this.props.min) {
+            event.target.value = this.props.min;
+        }
+
+        if (this.props.max && valor > this.props.max) {
+            event.target.value = this.props.max;
+        }
+
         await this.setState({
             ...this.state,
-            valor: parseInt(event.target.value),
+            valor,
         });
         this.props.agregarValor(this.state);
     }
