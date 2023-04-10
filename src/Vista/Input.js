@@ -6,6 +6,7 @@ class Input extends React.Component {
         this.state = {
             valor: null,
             name: this.props.name,
+            tipoEcuacion: this.props.tipoEcuacion,
         };
         this.handleChange = this.handleChange.bind(this);
     }
