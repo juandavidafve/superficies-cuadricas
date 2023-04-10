@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/superficies-cuadricas/static/js/main.dfb39f36.js",
+    "main.js": "/superficies-cuadricas/static/js/main.b9d7d668.js",
     "index.html": "/superficies-cuadricas/index.html",
-    "main.dfb39f36.js.map": "/superficies-cuadricas/static/js/main.dfb39f36.js.map"
+    "main.b9d7d668.js.map": "/superficies-cuadricas/static/js/main.b9d7d668.js.map"
   },
   "entrypoints": [
-    "static/js/main.dfb39f36.js"
+    "static/js/main.b9d7d668.js"
   ]
 }
