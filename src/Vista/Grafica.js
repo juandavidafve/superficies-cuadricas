@@ -3,6 +3,7 @@ import React from "react";
 class Grafica extends React.Component {
     actualizar() {
         let eq = this.props.ecuacion;
+        let punto = this.props.punto;
         let elemento = document.querySelector("#ggb-element");
         let ggb = new window.GGBApplet({
             appName: "3d",
@@ -10,7 +11,7 @@ class Grafica extends React.Component {
             height: window.innerHeight,
             showToolBar: false,
             showMenuBar: false,
-            showAlgebraInput: false,
+            showAlgebraInput: true,
             showResetIcon: false,
             enableLabelDrags: false,
             enableShiftDragZoom: true,
@@ -20,6 +21,11 @@ class Grafica extends React.Component {
             useBrowserForJS: false,
             appletOnLoad(api) {
                 api.evalCommand(eq);
+                if (punto) {
+                    api.evalCommand(
+                        `${punto.letra} =(${punto.pos[0]},${punto.pos[1]},${punto.pos[2]})`
+                    );
+                }
             },
         });
         ggb.inject("ggb-element");

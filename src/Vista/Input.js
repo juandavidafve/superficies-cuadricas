@@ -6,33 +6,20 @@ class Input extends React.Component {
         this.state = {
             valor: null,
             name: this.props.name,
-            tipoEcuacion: this.props.tipoEcuacion,
         };
         this.handleChange = this.handleChange.bind(this);
     }
 
     async handleChange(event) {
-        let notNumber = /[^\d-]/g;
+        let notNumber = /[^\d-+.]/g;
 
         if (notNumber.test(event.target.value)) {
             event.target.value = 0;
         }
 
-        console.log("Cambio");
-
-        const valor = parseInt(event.target.value);
-
-        if (this.props.min && valor < this.props.min) {
-            event.target.value = this.props.min;
-        }
-
-        if (this.props.max && valor > this.props.max) {
-            event.target.value = this.props.max;
-        }
-
         await this.setState({
             ...this.state,
-            valor,
+            valor: event.target.value,
         });
         this.props.agregarValor(this.state);
     }
