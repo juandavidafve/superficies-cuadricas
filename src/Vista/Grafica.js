@@ -11,7 +11,7 @@ class Grafica extends React.Component {
             height: window.innerHeight,
             showToolBar: false,
             showMenuBar: false,
-            showAlgebraInput: true,
+            showAlgebraInput: false,
             showResetIcon: false,
             enableLabelDrags: false,
             enableShiftDragZoom: true,

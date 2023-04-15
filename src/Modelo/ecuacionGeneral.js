@@ -160,7 +160,7 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
             cuadraticos.length > 0 &&
             linealesSinCuadratico.length > 0
         ) {
-            let [a2, b2, h, k, l, M] = cuadricaSinCentro(A, B, C, D, E, F, G);
+            let [a2, b2, h, k, l] = cuadricaSinCentro(A, B, C, D, E, F, G);
             if (cantidadCuadraticos === 2) {
                 if ((a2 >= 0 && b2 >= 0) || (a2 < 0 && b2 < 0)) {
                     figura = "Paraboloide Elíptico";
