@@ -36,15 +36,32 @@ class GUI extends React.Component {
             let valido = true;
 
             for (const [key, value] of Object.entries(eq)) {
-                let isNumber = /^[\+\-]?\d+(\.\d+)?$/g;
                 if (valido) {
-                    valido = isNumber.test(value);
+                    let isNumber =
+                        /^[\+\-]?\d+(\.\d+)?(\/[\+\-]?\d+(\.\d+)?)?$/g;
+
+                    let formatoValido = isNumber.test(value);
+
+                    if (formatoValido) {
+                        let fraccionValida = true;
+
+                        let fraccion = value.toString().split("/");
+                        if (fraccion.length > 1) {
+                            fraccionValida = parseFloat(fraccion[1]) !== 0;
+                        }
+
+                        valido = formatoValido && fraccionValida;
+                    }
                 }
             }
 
             if (valido) {
                 for (const [key, value] of Object.entries(eq)) {
-                    eq[key] = parseFloat(value);
+                    let fraccion = value.toString().split("/");
+                    eq[key] = parseFloat(fraccion[0]);
+                    if (fraccion.length > 1) {
+                        eq[key] /= fraccion[1];
+                    }
                 }
 
                 await this.setState({
