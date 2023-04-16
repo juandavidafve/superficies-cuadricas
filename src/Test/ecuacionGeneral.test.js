@@ -36,6 +36,7 @@ it("Cilindro Hiperbólico", () => {
 it("Planos Paralelos", () => {
     let texto = "Planos Paralelos";
     expect(ecuacionGeneral(1, 0, 0, 0, 0, 0, -16).figura).toEqual(texto);
+    expect(ecuacionGeneral(0, 0, -1, 0, 0, 0, 2).figura).toEqual(texto);
 });
 
 it("Punto", () => {

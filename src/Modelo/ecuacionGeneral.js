@@ -486,7 +486,7 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
                     if (F !== 0) {
                         info += `Corta al eje Z en ${l}. `;
                     }
-                } else if (negativos === 0 && M > 0) {
+                } else if (negativos === 0 && M !== 0) {
                     figura = "Planos Paralelos";
                     let eje = null;
                     let distancia = null;
