@@ -13,11 +13,13 @@ it("Esfera", () => {
 it("Hiperboloide 1 hoja", () => {
     let texto = "Hiperboloide 1 hoja";
     expect(ecuacionGeneral(3, 4, -2, 6, -16, 8, -13).figura).toEqual(texto);
+    expect(ecuacionGeneral(1, -1, -1, 0, 0, 0, 3).figura).toEqual(texto);
 });
 
 it("Hiperboloide 2 hojas", () => {
     let texto = "Hiperboloide 2 hojas";
     expect(ecuacionGeneral(3, -43, -23, 6, -16, 8, -13).figura).toEqual(texto);
+    expect(ecuacionGeneral(1, 1, -1, 0, 0, 0, 3).figura).toEqual(texto);
 });
 
 it("Cilindro Elíptico", () => {

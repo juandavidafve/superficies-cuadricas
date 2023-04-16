@@ -252,7 +252,7 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
                 (e) => e !== null && e < 0
             ).length;
 
-            if (lineales.length === 0) {
+            if (lineales.length === 0 && G === 0) {
                 negativos = [A, B, C].filter((e) => e !== null && e < 0).length;
             }
 
