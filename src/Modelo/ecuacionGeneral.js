@@ -325,7 +325,12 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
                     }
                 } else {
                     if (negativos === 0 || negativos === 3) {
-                        figura = "Origen";
+                        figura = "Punto";
+                        punto = {
+                            nombre: "Punto",
+                            letra: "P",
+                            pos: [h, k, l],
+                        };
                     } else if (negativos < 3) {
                         figura = "Cono Elíptico";
                         let eje = null;
@@ -363,12 +368,8 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
             } else if (nulos.length === 1) {
                 if (M === 0) {
                     if (negativos === 0 || negativos === 2) {
-                        figura = "Eje Coordenado";
-                        let eje = null;
-
-                        if (a2 === null) {
-                            eje = "X";
-                        }
+                        figura = "Línea";
+                        let eje = "X";
 
                         if (b2 === null) {
                             eje = "Y";
@@ -377,7 +378,13 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
                         if (c2 === null) {
                             eje = "Z";
                         }
-                        info = `Corresponde al eje ${eje}`;
+
+                        info = `Es paralela al eje ${eje}.`;
+                        punto = {
+                            nombre: "Punto",
+                            letra: "P",
+                            pos: [h, k, l],
+                        };
                     } else if (negativos === 1) {
                         figura = "Planos que se intersecan";
                         let eje = null;
@@ -444,7 +451,8 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
                 }
             } else if (nulos.length === 2) {
                 if (M === 0) {
-                    figura = "Plano Coordenado";
+                    figura = "Plano";
+
                     let plano = "";
 
                     if (a2 === null) {
@@ -458,28 +466,55 @@ function ecuacionGeneral(A, B, C, D, E, F, G) {
                     if (c2 === null) {
                         plano += "Z";
                     }
-                    info = `Corresponde al plano ${plano}`;
+
+                    punto = {
+                        nombre: "Punto",
+                        letra: "P",
+                        pos: [h, k, l],
+                    };
+
+                    info = `Es paralelo al plano ${plano}. `;
+
+                    if (D !== 0) {
+                        info += `Corta al eje X en ${h}. `;
+                    }
+
+                    if (E !== 0) {
+                        info += `Corta al eje Y en ${k}. `;
+                    }
+
+                    if (F !== 0) {
+                        info += `Corta al eje Z en ${l}. `;
+                    }
                 } else if (negativos === 0 && M > 0) {
                     figura = "Planos Paralelos";
                     let eje = null;
                     let distancia = null;
+                    let centro = null;
 
                     if (a2 !== null) {
                         eje = "X";
-                        distancia = Math.sqrt(a2).toFixed(2) * 2;
+                        distancia = a2;
+                        centro = h;
                     }
 
                     if (b2 !== null) {
                         eje = "Y";
-                        distancia = Math.sqrt(b2).toFixed(2) * 2;
+                        distancia = b2;
+                        centro = k;
                     }
 
                     if (c2 !== null) {
                         eje = "Z";
-                        distancia = Math.sqrt(c2).toFixed(2) * 2;
+                        distancia = c2;
+                        centro = l;
                     }
 
-                    info = `Son perpendiculares al eje ${eje}. Hay una distancia de ${distancia} unidades entre ambos planos.`;
+                    distancia = Math.sqrt(distancia).toFixed(2) * 2;
+                    let punto1 = (centro + distancia / 2).toFixed(2);
+                    let punto2 = (centro - distancia / 2).toFixed(2);
+
+                    info = `Son perpendiculares al eje ${eje}. Hay una distancia de ${distancia} unidades entre ambos planos. Cortan al eje ${eje} en ${punto1} y ${punto2}`;
                 }
             }
         } else if (lineales.length > 0) {

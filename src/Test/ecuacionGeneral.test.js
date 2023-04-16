@@ -38,8 +38,8 @@ it("Planos Paralelos", () => {
     expect(ecuacionGeneral(1, 0, 0, 0, 0, 0, -16).figura).toEqual(texto);
 });
 
-it("Origen", () => {
-    let texto = "Origen";
+it("Punto", () => {
+    let texto = "Punto";
     expect(ecuacionGeneral(25, 81, 36, 0, 0, 0, 0).figura).toEqual(texto);
 });
 
@@ -48,10 +48,11 @@ it("Cono Elíptico", () => {
     expect(ecuacionGeneral(4, -2, 9, 0, 0, 0, 0).figura).toEqual(texto);
 });
 
-it("Eje Coordenado", () => {
-    let texto = "Eje Coordenado";
+it("Línea", () => {
+    let texto = "Línea";
     expect(ecuacionGeneral(16, 2, 0, 0, 0, 0, 0).figura).toEqual(texto);
     expect(ecuacionGeneral(0, 35, 2, 0, 0, 0, 0).figura).toEqual(texto);
+    expect(ecuacionGeneral(1, 0, 1, 0, 0, 2, 1).figura).toEqual(texto);
 });
 
 it("Planos que se intersecan", () => {
@@ -60,8 +61,8 @@ it("Planos que se intersecan", () => {
     expect(ecuacionGeneral(0, -3, 1, 0, 0, 0, 0).figura).toEqual(texto);
 });
 
-it("Plano Coordenado", () => {
-    let texto = "Plano Coordenado";
+it("Plano", () => {
+    let texto = "Plano";
     expect(ecuacionGeneral(0, 2, 0, 0, 0, 0, 0).figura).toEqual(texto);
     expect(ecuacionGeneral(0, 0, -5, 0, 0, 0, 0).figura).toEqual(texto);
 });
